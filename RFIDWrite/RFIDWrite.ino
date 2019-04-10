@@ -70,15 +70,15 @@ void loop() {
   len = Serial.readBytesUntil('#', (char *) buffer, 30) ; // read family name from serial
   for (byte i = len; i < 30; i++) buffer[i] = ' ';     // pad with spaces
 
-  block = 10;
+  block = 15;
   //Serial.println(F("Authenticating using key A..."));
-  status = mfrc522.PCD_Authenticate(MFRC522::PICC_CMD_MF_AUTH_KEY_A, block, &key, &(mfrc522.uid));
-  if (status != MFRC522::STATUS_OK) {
-    Serial.print(F("PCD_Authenticate() failed: "));
-    Serial.println(mfrc522.GetStatusCodeName(status));
-    return;
-  }
-  else Serial.println(F("PCD_Authenticate() success: "));
+//  status = mfrc522.PCD_Authenticate(MFRC522::PICC_CMD_MF_AUTH_KEY_A, block, &key, &(mfrc522.uid));
+//  if (status != MFRC522::STATUS_OK) {
+//    Serial.print(F("PCD_Authenticate() failed: "));
+//    Serial.println(mfrc522.GetStatusCodeName(status));
+//    return;
+//  }
+//  else Serial.println(F("PCD_Authenticate() success: "));
 
   // Write block
   status = mfrc522.MIFARE_Write(block, buffer, 16);
