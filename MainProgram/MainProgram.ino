@@ -49,11 +49,9 @@ void getTag() {
       if (status == MFRC522::STATUS_OK) {
           status = rfid.MIFARE_Read(10, buffer, &size);
           if (status == MFRC522::STATUS_OK) {
-              Serial.print(("Data (block = 10): "));
-              Serial.print(char(buffer[0]));
+//              Serial.print(("Data (block = 10): "));
+              Serial.println(char(buffer[0]));
           }
-
-          printHex(rfid.uid.uidByte, rfid.uid.size);
       }
     } else if ( piccType == 6 ) {
 
